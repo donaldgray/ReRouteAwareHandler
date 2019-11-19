@@ -1,0 +1,35 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/200",
+      "UpstreamPathTemplate": "/foo",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "httpstat.us",
+          "Port": 443
+        }
+      ],
+      "Key": "Foo",
+      "DelegatingHandlers": [ "PollyRetryBreakerHandler" ]
+    },
+    {
+      "DownstreamPathTemplate": "/500",
+      "UpstreamPathTemplate": "/bar",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "httpstat.us",
+          "Port": 443
+        }
+      ],
+      "Key": "Bar"
+    }
+  ]
+}
